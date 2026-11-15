@@ -1,0 +1,47 @@
+# Swaylock theme matching the Waybar palette.
+# The wrapper lock-screen.sh supplies the current wallpaper image.
+ignore-empty-password
+show-failed-attempts
+indicator-idle-visible
+scaling=fill
+
+color=1c181f
+inside-color=1c181fdd
+inside-clear-color=1c181fdd
+inside-caps-lock-color=d5bee9dd
+inside-ver-color=d5bee9dd
+inside-wrong-color=f97386dd
+
+ring-color=d5bee9
+ring-clear-color=d5bee9
+ring-caps-lock-color=d5bee9
+ring-ver-color=d5bee9
+ring-wrong-color=f97386
+
+line-color=00000000
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+
+separator-color=00000000
+
+key-hl-color=d5bee9
+bs-hl-color=f97386
+caps-lock-key-hl-color=d5bee9
+caps-lock-bs-hl-color=f97386
+
+text-color=e9e2f0
+text-clear-color=e9e2f0
+text-caps-lock-color=1c181f
+text-ver-color=1c181f
+text-wrong-color=1c181f
+
+font=JetBrainsMono Nerd Font
+font-size=14
+indicator-radius=120
+indicator-thickness=8
+
+layout-bg-color=1c181f
+layout-border-color=d5bee9
+layout-text-color=e9e2f0

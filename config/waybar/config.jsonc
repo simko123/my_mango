@@ -1,0 +1,190 @@
+{
+  "layer": "top",
+  "position": "left",
+  "width": 60,
+  "margin": "8 0 8 8",
+  "spacing": 6,
+  "reload_style_on_change": true,
+
+  "modules-left": [
+    "custom/arch",
+    "ext/workspaces",
+    "custom/wallpaper",
+    "temperature",
+    "cpu",
+    "memory",
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "backlight"
+  ],
+  "modules-right": [
+    "tray",
+    "mango/language",
+    "clock",
+    "battery"
+  ],
+
+  "custom/arch": {
+    "format": "󰣇",
+    "tooltip": false,
+    "on-click": "~/.local/bin/launcher.sh"
+  },
+
+  "ext/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "○",
+      "active": "●",
+      "urgent": "◆"
+    },
+    "ignore-hidden": false,
+    "sort-by-id": true,
+    "on-click": "activate",
+    "on-click-right": "deactivate"
+  },
+
+  "custom/wallpaper": {
+    "format": "",
+    "tooltip-format": "Wallpaper",
+    "on-click": "bash ~/.config/waybar/scripts/wallpaper-picker.sh"
+    //"on-click": "waypaper"
+  },
+
+  "clock": {
+    "justify": "center",
+    "interval": 10,
+    "format": "\n{:%H:%M\n%d.%m}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+
+  "temperature": {
+    "justify": "center",
+    "input-filename": "temp1_input",
+    "interval": 2,
+    "warning-threshold": 75,
+    "critical-threshold": 90,
+    "format": "󰏈\n{temperatureC}°C",
+    "format-warning": "󰏈\n{temperatureC}°C",
+    "format-critical": "󰏈\n{temperatureC}°C",
+    "tooltip-format": "CPU temperature: {temperatureC}°C"
+  },
+
+  "cpu": {
+    "justify": "center",
+    "interval": 2,
+    "format": "\n{usage}%",
+    "tooltip-format": "CPU usage: {usage}%"
+  },
+
+  "memory": {
+    "justify": "center",
+    "interval": 2,
+    "format": "\n{used:.2f}\nGiB",
+    "tooltip-format": "RAM: {used:.2f} / {total:.2f} GiB\nSwap: {swapUsed:.2f} / {swapTotal:.2f} GiB"
+  },
+
+  "bluetooth": {
+    "justify": "center",
+    "format": "\nON",
+    "format-on": "\nON",
+    "format-connected": "\nON",
+    "format-off": "\nOFF",
+    "format-disabled": "\nOFF",
+    "format-no-controller": "\n--",
+    "tooltip-format": "Bluetooth: {status}",
+    "tooltip-format-on": "Bluetooth is on",
+    "tooltip-format-connected": "Connected: {device_enumerate}",
+    "tooltip-format-off": "Bluetooth is off",
+    "tooltip-format-disabled": "Bluetooth is disabled",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_battery_percentage}%)",
+    "on-click": "blueman-manager"
+  },
+
+  "network": {
+    "justify": "center",
+    "interface": "wl*",
+    "interval": 3,
+    "format": "\n--",
+    "format-wifi": "\n{signalStrength}%",
+    "format-disconnected": "\n--",
+    "format-disabled": "\nOFF",
+    "tooltip-format-wifi": "{essid}\n{signalStrength}% ({signaldBm} dBm)",
+    "tooltip-format-disconnected": "Wi-Fi is disconnected",
+    "tooltip-format-disabled": "Wi-Fi is disabled",
+    "on-click": "nm-connection-editor"
+  },
+
+  "pulseaudio": {
+    "justify": "center",
+    "scroll-step": 2,
+    "format": "{icon}\n{volume}%",
+    "format-muted": "\nMUTE",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "tooltip-format": "Volume: {volume}%",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+
+  "backlight": {
+    "justify": "center",
+    "format": "{icon}\n{percent}%",
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ],
+    "scroll-step": 2,
+    "on-scroll-up": "brightnessctl set 2%+",
+    "on-scroll-down": "brightnessctl set 2%-",
+    "tooltip-format": "Brightness: {percent}%"
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 6
+  },
+
+  "mango/language": {
+    "format": "{long}",
+    "format-en": "EN",
+    "format-ru": "RU"
+  },
+
+  "battery": {
+    "justify": "center",
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "interval": 5,
+    "format": "{icon}\n{capacity}%",
+    "format-charging": "\n{capacity}%",
+    "format-plugged": "\n{capacity}%",
+    "format-full": "{icon}\n{capacity}%",
+    "format-icons": {
+      "default": [
+        "󰂎",
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ]
+    },
+    "tooltip-format": "Battery: {capacity}%\n{time} remaining\n{power} W",
+    "tooltip-format-charging": "Charging: {capacity}%\n{time} until full\n{power} W",
+    "on-click": "bash ~/.config/waybar/scripts/power-profile-menu.sh"
+  }
+}

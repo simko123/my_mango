@@ -1,0 +1,11 @@
+# Lock after 9 minutes of inactivity.
+timeout 450 '$HOME/.local/bin/lock-screen.sh --background'
+
+# Lock and suspend after 15 minutes of inactivity.
+timeout 900 '$HOME/.local/bin/lock-screen.sh --background && systemctl suspend'
+
+# Lock when logind asks the session to lock.
+lock '$HOME/.local/bin/lock-screen.sh --background'
+
+# Always lock before going to sleep.
+before-sleep '$HOME/.local/bin/lock-screen.sh --background'

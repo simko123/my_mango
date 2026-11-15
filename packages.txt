@@ -1,0 +1,210 @@
+# my-mango packages
+#
+# Формат: секции в квадратных скобках, по одному пакету на строку.
+# Комментарии начинаются с #. Транзитивные зависимости pacman/yay подтянут сами.
+#
+# [bootstrap]    собирается install.sh, если yay ещё нет
+# [core]         минимальный набор для mango/waybar/скриптов
+# [core-aur]     AUR-пакеты, нужные для core
+# [apps]         обычные приложения
+# [apps-aur]     AUR-приложения
+# [system]       база, ядро, сервисы, login/boot
+# [system-aur]   AUR-пакеты для железа
+# [flatpak]      flatpak-приложения
+# [services]     systemd-сервисы (system)
+# [user-services] systemd-сервисы (user)
+
+[bootstrap]
+yay
+# отладочные символы yay; необязателен, можно не ставить
+# yay-debug
+
+[core]
+# WM и рабочий стол
+mangowm
+waybar
+foot
+fish
+fuzzel
+mako
+swaybg
+swayidle
+swaylock
+wl-clipboard
+cliphist
+brightnessctl
+power-profiles-daemon
+
+# звук
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+wireplumber
+gst-plugin-pipewire
+libpulse
+
+# сеть и Bluetooth
+networkmanager
+nm-connection-editor
+bluez
+bluez-utils
+blueman
+bluetui
+
+# polkit и keyring
+polkit-gnome
+gnome-keyring
+
+# порталы
+xdg-desktop-portal
+xdg-desktop-portal-gtk
+xdg-desktop-portal-wlr
+
+# файлы, скриншоты, изображения
+thunar
+gvfs
+xdg-utils
+shared-mime-info
+desktop-file-utils
+imv
+xpdf
+grim
+flameshot
+ffmpeg
+libnotify
+libappindicator
+
+# wallpaper picker и GTK
+python-gobject
+gtk3
+
+# шрифты и курсоры
+ttf-jetbrains-mono-nerd
+noto-fonts
+noto-fonts-emoji
+ttf-dejavu
+ttf-liberation
+xcursor-themes
+gnome-themes-extra
+
+[core-aur]
+# GUI для swaybg; тянет python-gobject, pillow и т.д.
+waypaper
+# курсор Sweet, используется в mango/input.conf
+sweet-cursors-git
+
+[apps]
+# браузеры и редакторы
+firefox
+zed
+lapce
+micro
+nano
+
+# медиа и файлы
+vlc
+mousepad
+file-roller
+udiskie
+
+# офис и виртуалки
+libreoffice-fresh
+libreoffice-fresh-ru
+gnome-boxes
+gnome-software
+flatpak
+
+# Java / Minecraft
+jre21-openjdk
+
+# утилиты
+kitty
+rofi
+scrot
+fastfetch
+tree
+nmap
+usbutils
+7zip
+unzip
+bc
+
+# разработка
+python-pip
+meson
+ninja
+glib2-devel
+opencode
+uvicorn
+
+[apps-aur]
+# браузер по умолчанию в mimeapps.list
+brave-bin
+# GTK4 GUI для NetworkManager (опционально)
+nmgui-bin
+
+[system]
+# база; на уже установленной системе --needed ничего не переустановит
+base
+base-devel
+linux
+linux-firmware
+linux-headers
+mkinitcpio
+intel-ucode
+btrfs-progs
+efibootmgr
+sudo
+git
+wpa_supplicant
+zram-generator
+
+# сервисы
+firewalld
+cronie
+cups
+cups-pk-helper
+system-config-printer
+ghostscript
+fwupd
+avahi
+nss-mdns
+libgusb
+
+# login и boot
+sddm
+plymouth
+qt6-5compat
+cantarell-fonts
+
+# файловые системы и железо
+ntfs-3g
+fuse2
+sof-firmware
+vulkan-intel
+
+# снапшоты
+timeshift
+
+[flatpak]
+com.nvidia.geforcenow
+org.telegram.desktop
+
+[services]
+NetworkManager
+bluetooth
+firewalld
+cups
+cronie
+power-profiles-daemon
+avahi-daemon
+systemd-timesyncd
+sddm
+
+[user-services]
+mako
+pipewire.socket
+pipewire-pulse.socket
+wireplumber
+gnome-keyring-daemon.socket
