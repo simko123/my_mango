@@ -8,6 +8,8 @@ if you somehow stumbled upon this repo and decided to use it: **i take absolutel
 
 the installer backs up existing files to `~/.dotfiles-backup/<date>/` before replacing them. at least it tries not to ruin your day.
 
+![screenshot](screenshot.png)
+
 ## installer
 
 ```bash
